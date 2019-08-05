@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   resources :cat_rental_requests
 
+  resources :cat_rental_requests do
+    member do
+      get :approve
+      get :deny
+    end
+  end
+
 end

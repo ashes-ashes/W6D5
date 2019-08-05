@@ -5,12 +5,22 @@
   <tr>
     <td>Start Date</td>
     <td>End Date</td>
+    <td></td>
+    <td></td>
   <tr>
   <tbody>
     <% @cat.rental_requests.each do |req| %>
       <tr>
         <td><%= req.start_date %></td>
         <td><%= req.end_date %></td>
+        <% if req.pending? %>
+        <form action="approve_cat_rental_request" method="GET">
+            <input type="submit" value="APPROVE">
+        </form>
+        <form action="deny_cat_rental_request" method="GET">
+            <input type="submit" value="DENY">
+        </form>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
