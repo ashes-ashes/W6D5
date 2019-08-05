@@ -1,1 +1,17 @@
 <%= render 'cat', cat: @cat %>
+<br><br><br>
+<table>
+  <thead><tr>Rental Requests</tr></thead>
+  <tr>
+    <td>Start Date</td>
+    <td>End Date</td>
+  <tr>
+  <tbody>
+    <% @cat.rental_requests.each do |req| %>
+      <tr>
+        <td><%= req.start_date %></td>
+        <td><%= req.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
